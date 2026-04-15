@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Score Tracker — Freeboard</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+
+  <!-- GLOBAL UI BLOCKER -->
+  <div id="ui-blocker" class="ui-blocker hidden" aria-hidden="true">
+    <div class="ui-blocker-inner">
+      <div class="spinner"></div>
+      <div id="spinner-text">Loading…</div>
+    </div>
+  </div>
+
+  <header class="top">
+    <div class="brand">Score Tracker</div>
+
+    <div class="top-actions">
+      <!-- Theme toggle -->
+      <button id="btn-theme-toggle" title="Toggle theme">🌙</button>
+
+      <button id="btn-add-players">Add Players</button>
+      <button id="btn-scoreboard">Scoreboard</button>
+      <button id="btn-clear-data" class="danger">Clear Data</button>
+    </div>
+  </header>
+
+  <main id="app" class="app">
+
+    <!-- MAIN / HOME -->
+    <section id="screen-main" class="screen active">
+      <div class="home-card">
+        <h1>Score Tracker</h1>
+        <p class="muted">Real-time. GitHub-backed. Drag players anywhere.</p>
+        <div class="cta">
+          <button id="home-add" class="primary">Add Players</button>
+          <button id="home-score" class="primary outline">Open Scoreboard</button>
+        </div>
+        <p class="small">Connected users sync automatically.</p>
+      </div>
+    </section>
+
+    <!-- ADD PLAYERS -->
+    <section id="screen-add" class="screen hidden">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Add Players</h2>
+          <div class="panel-actions">
+            <button id="btn-back-from-add" class="outline">Back</button>
+            <button id="btn-save-players" class="primary">Save Players</button>
+          </div>
+        </div>
+
+        <textarea id="multi-input" placeholder="Type one name per line or comma-separated"></textarea>
+
+        <div class="controls-row">
+          <button id="btn-add-from-text">Add Names</button>
+          <button id="btn-clear-text" class="outline">Clear</button>
+        </div>
+
+        <h3>Players</h3>
+        <ul id="players-list" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- SCOREBOARD -->
+    <section id="screen-score" class="screen hidden full-screen">
+      <div class="score-header">
+        <div class="score-left">
+          <button id="btn-back-from-score" class="outline">Back</button>
+          <button id="btn-toggle-drag">Unlock Drag</button>
+          <button id="btn-save-positions" class="primary" title="Save all player positions">Save Positions</button>
+        </div>
+        <div class="score-right">
+          <!-- optional place for status -->
+        </div>
+      </div>
+
+      <div class="score-body">
+        <div id="board" class="board" tabindex="0" aria-label="Scoreboard area"></div>
+
+        <div id="teams-panel" class="teams-panel">
+          <h4>Teams</h4>
+          <div id="teams-list"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- socket.io client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- app -->
+  <script src="js/index.js"></script>
+</body>
+</html>
