@@ -398,7 +398,7 @@
             if (!p) return;
             p.color = val;
             renderBoard();
-            saveToServer(`Assign color`);
+            // saveToServer(`Assign color`);
           });
         }
       });
@@ -422,7 +422,8 @@
           top: card.style.top
         };
       });
-      saveToServer("Save all positions");
+      // saveToServer("Save all positions");
+      saveToServer("Manual Save: Scores, Colors, and Positions");
     }
 
     // Dragging
@@ -491,7 +492,7 @@
       p.score = (Number(p.score) || 0) + delta;
       if (p.score < 0) p.score = 0;
       renderBoard();
-      saveToServer(`Change score`);
+      // saveToServer(`Change score`);
     }
 
     // Teams panel

@@ -55,11 +55,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 14px 20px;
+  gap: 2px;
+  padding: 3px 20px;
   background: linear-gradient(180deg, var(--card) 0%, rgba(0,0,0,0.02) 100%);
   border-bottom: 1px solid rgba(14, 165, 233, 0.04);
   box-shadow: var(--shadow-sm);
+  z-index: 10;
 }
 
 .brand {
@@ -71,6 +72,7 @@ body {
 .top-actions {
   display: flex;
   align-items: center;
+  margin-top: 0;
 }
 
 /* Buttons */
@@ -121,11 +123,11 @@ button:disabled {
 
 /* Main area */
 .app {
-  padding: 20px;
-  height: calc(100vh - 64px);
+  padding: 0 20px;
+  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
 }
 
 /* screens */
@@ -135,8 +137,8 @@ button:disabled {
 /* Home */
 .home-card {
   max-width: 900px;
-  margin: 28px auto;
-  padding: 32px;
+  margin: 10px auto;
+  padding: 24px;
   background: var(--card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
@@ -249,7 +251,7 @@ button:disabled {
 .board {
   position: relative;
   flex: 1;
-  margin-top: 12px;
+  margin-top: 3px;
   background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 100%);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(2,6,23,0.04);
@@ -363,3 +365,68 @@ button:disabled {
 
 /* Keep teams panel width same as before */
 .score-body .teams-panel { min-width: 180px; max-width: 180px; }
+
+
+/* Footer Styles */
+.app-footer {
+  padding: 2px 20px;
+  background: var(--card);
+  border-top: 1px solid rgba(14, 165, 233, 0.08);
+  margin-top: auto; /* Pushes to bottom in flex containers */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.footer-content strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Layout Adjustment */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app {
+  flex: 1 0 auto; /* Ensures main content expands to fill space */
+  padding: 3px 20px;
+  height: auto; /* Changed from fixed calc to allow natural flow */
+  min-height: calc(100vh - 120px);
+}
+
+/* Container for the brand and credit */
+.brand-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.2px;
+}
+
+.brand-credit {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.brand-credit strong {
+  color: var(--accent); /* This uses your blue theme color for your name */
+  font-weight: 800;
+}
